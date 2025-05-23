@@ -1,37 +1,38 @@
 package com.oktayparlak.lottofun.entities;
 
+import com.oktayparlak.lottofun.entities.enums.DrawStatus;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
 @Entity
-@Table(name = "users")
+@Table(name = "draws")
 @Data
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class User {
+public class Draw {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(unique = true, nullable = false)
-    private String username;
+    @Column(name = "draw_number", unique = true, nullable = false)
+    private Long drawNumber;
 
+    @Column(name = "draw_date", nullable = false)
+    private LocalDateTime drawDate;
+
+    @Enumerated(EnumType.STRING)
     @Column(nullable = false)
-    private String password;
+    private DrawStatus status;
 
-    @Column(unique = true, nullable = false)
-    private String email;
-
-    @Column(nullable = false)
-    private BigDecimal balance;
+    @Column(name = "winning_numbers")
+    private String winningNumbers;
 
     @Column(name = "created_at", nullable = false)
     private LocalDateTime createdAt;
@@ -41,7 +42,6 @@ public class User {
 
     @PrePersist
     protected void onCreate() {
-        balance = BigDecimal.valueOf(1000);
         createdAt = LocalDateTime.now();
         updatedAt = LocalDateTime.now();
     }
