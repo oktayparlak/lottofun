@@ -14,6 +14,4 @@ public interface DrawService {
 
     List<DrawResponse> getDrawHistory(Pageable pageable);
 
-    void executeDraw();
-
 }

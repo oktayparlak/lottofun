@@ -10,6 +10,7 @@ import com.oktayparlak.lottofun.entities.Ticket;
 import com.oktayparlak.lottofun.entities.enums.DrawStatus;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.scheduling.annotation.Scheduled;
@@ -58,7 +59,8 @@ public class DrawServiceImpl implements DrawService {
         return drawMapper.toResponseList(drawList);
     }
 
-    public Draw createNewDraw() {
+    public void createNewDraw() {
+        System.out.println("Creating a new draw..." + "${draw.cron.expression}");
         // Find the last draw number
         Long lastDrawNumber = drawRepository.findAll().stream()
                 .map(Draw::getDrawNumber)
@@ -71,47 +73,52 @@ public class DrawServiceImpl implements DrawService {
                 .status(DrawStatus.DRAW_OPEN)
                 .build();
 
-        return drawRepository.save(newDraw);
+        Draw savedDraw = drawRepository.save(newDraw);
+        System.out.println("New draw created with ID: " + savedDraw.getId());
     }
 
     @Scheduled(cron = "${draw.cron.expression}")
     @Transactional
-    @Override
+    @Bean
     public void executeDraw() {
 
-        Draw finishedDraw = drawRepository.findFirstByStatusOrderByDrawDateAsc(DrawStatus.DRAW_OPEN)
-                .filter(draw -> draw.getDrawDate().isBefore(LocalDateTime.now()))
-                .orElse(null);
+       try {
+           Draw openedDraw = drawRepository.findFirstByStatusOrderByDrawDateAsc(DrawStatus.DRAW_OPEN)
+                   .filter(draw -> draw.getDrawDate().isBefore(LocalDateTime.now()))
+                   .orElse(null);
 
-        if (finishedDraw != null) {
-            return; // There is no draw that closed to time
-        }
+           if (openedDraw == null) {
+               return; // There is no draw that closed to time
+           }
 
-        // Choose winning numbers
-        List<Integer> winningNumbers = generateWinningNumbers();
-        finishedDraw.setWinningNumbers(convertNumbersToString(winningNumbers));
-        finishedDraw.setStatus(DrawStatus.DRAW_EXTRACTED);
-        drawRepository.save(finishedDraw);
+           // Choose winning numbers
+           List<Integer> winningNumbers = generateWinningNumbers();
+           openedDraw.setWinningNumbers(convertNumbersToString(winningNumbers));
+           openedDraw.setStatus(DrawStatus.DRAW_EXTRACTED);
+           drawRepository.save(openedDraw);
 
-        //check the tickets and list the winners
-        List<Ticket> tickets = ticketRepository.findByDraw(finishedDraw);
-        resultService.calculateResults(finishedDraw, tickets);
+           //check the tickets and list the winners
+           List<Ticket> tickets = ticketRepository.findByDraw(openedDraw);
+           resultService.calculateResults(openedDraw, tickets);
 
-        // change the status of the draw
-        finishedDraw.setStatus(DrawStatus.PAYMENTS_PROCESSING);
-        drawRepository.save(finishedDraw);
+           // change the status of the draw
+           openedDraw.setStatus(DrawStatus.PAYMENTS_PROCESSING);
+           drawRepository.save(openedDraw);
 
-        // process payments
-        resultService.processPayments(tickets);
+           // process payments
+           resultService.processPayments(tickets);
 
-        // change the status of the draw
-        finishedDraw.setStatus(DrawStatus.DRAW_CLOSED);
-        drawRepository.save(finishedDraw);
+           // change the status of the draw
+           openedDraw.setStatus(DrawStatus.DRAW_CLOSED);
+           drawRepository.save(openedDraw);
 
-        // Notify winners
+           // Notify winners
 
-        // create  new draw
-        createNewDraw();
+           // create  new draw
+           createNewDraw();
+       } catch (Exception e) {
+           System.out.println("Error occurred during draw execution: " + e.getMessage());
+       }
 
     }
 
