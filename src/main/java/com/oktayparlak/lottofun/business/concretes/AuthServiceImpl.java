@@ -5,7 +5,6 @@ import com.oktayparlak.lottofun.dataAccess.UserRepository;
 import com.oktayparlak.lottofun.dto.request.LoginRequest;
 import com.oktayparlak.lottofun.dto.request.RegisterRequest;
 import com.oktayparlak.lottofun.dto.response.AuthResponse;
-import com.oktayparlak.lottofun.dto.response.UserResponse;
 import com.oktayparlak.lottofun.entities.User;
 import com.oktayparlak.lottofun.security.JwtUtil;
 import org.springframework.beans.factory.annotation.Autowired;
