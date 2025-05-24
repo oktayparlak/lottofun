@@ -13,6 +13,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.scheduling.annotation.EnableScheduling;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 
@@ -27,16 +28,11 @@ public class DrawServiceImpl implements DrawService {
 
     private final DrawRepository drawRepository;
     private final DrawMapper drawMapper;
-    private final TicketRepository ticketRepository;
-    private final ResultServiceImpl resultService;
 
     @Autowired
-    public DrawServiceImpl(DrawRepository drawRepository, DrawMapper drawMapper, TicketRepository ticketRepository,
-                           ResultServiceImpl resultService) {
+    public DrawServiceImpl(DrawRepository drawRepository, DrawMapper drawMapper) {
         this.drawRepository = drawRepository;
         this.drawMapper = drawMapper;
-        this.ticketRepository = ticketRepository;
-        this.resultService = resultService;
     }
 
     @Override
@@ -57,89 +53,6 @@ public class DrawServiceImpl implements DrawService {
     public List<DrawResponse> getDrawHistory(Pageable pageable) {
         List<Draw> drawList = drawRepository.findAll(pageable).getContent();
         return drawMapper.toResponseList(drawList);
-    }
-
-    public void createNewDraw() {
-        System.out.println("Creating a new draw..." + "${draw.cron.expression}");
-        // Find the last draw number
-        Long lastDrawNumber = drawRepository.findAll().stream()
-                .map(Draw::getDrawNumber)
-                .max(Long::compareTo)
-                .orElse(0L);
-
-        Draw newDraw = Draw.builder()
-                .drawNumber(lastDrawNumber + 1)
-                .drawDate(LocalDateTime.now().plusDays(7)) // Set the draw date to 7 days from now
-                .status(DrawStatus.DRAW_OPEN)
-                .build();
-
-        Draw savedDraw = drawRepository.save(newDraw);
-        System.out.println("New draw created with ID: " + savedDraw.getId());
-    }
-
-    @Scheduled(cron = "${draw.cron.expression}")
-    @Transactional
-    @Bean
-    public void executeDraw() {
-
-       try {
-           Draw openedDraw = drawRepository.findFirstByStatusOrderByDrawDateAsc(DrawStatus.DRAW_OPEN)
-                   .filter(draw -> draw.getDrawDate().isBefore(LocalDateTime.now()))
-                   .orElse(null);
-
-           if (openedDraw == null) {
-               return; // There is no draw that closed to time
-           }
-
-           // Choose winning numbers
-           List<Integer> winningNumbers = generateWinningNumbers();
-           openedDraw.setWinningNumbers(convertNumbersToString(winningNumbers));
-           openedDraw.setStatus(DrawStatus.DRAW_EXTRACTED);
-           drawRepository.save(openedDraw);
-
-           //check the tickets and list the winners
-           List<Ticket> tickets = ticketRepository.findByDraw(openedDraw);
-           resultService.calculateResults(openedDraw, tickets);
-
-           // change the status of the draw
-           openedDraw.setStatus(DrawStatus.PAYMENTS_PROCESSING);
-           drawRepository.save(openedDraw);
-
-           // process payments
-           resultService.processPayments(tickets);
-
-           // change the status of the draw
-           openedDraw.setStatus(DrawStatus.DRAW_CLOSED);
-           drawRepository.save(openedDraw);
-
-           // Notify winners
-
-           // create  new draw
-           createNewDraw();
-       } catch (Exception e) {
-           System.out.println("Error occurred during draw execution: " + e.getMessage());
-       }
-
-    }
-
-    private List<Integer> generateWinningNumbers() {
-        List<Integer> numbers = new ArrayList<>();
-        Random random = new Random();
-
-        while (numbers.size() < 5) {
-            int number = random.nextInt(49) + 1;
-            if (!numbers.contains(number)) {
-                numbers.add(number);
-            }
-        }
-
-        return numbers;
-    }
-
-    private String convertNumbersToString(List<Integer> numbers) {
-        return numbers.stream()
-                .map(String::valueOf)
-                .collect(Collectors.joining(","));
     }
 
 }
