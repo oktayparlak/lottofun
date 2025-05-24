@@ -12,6 +12,6 @@ public interface DrawService {
 
     DrawResponse getDrawById(Long id);
 
-    List<DrawResponse> getDrawHistory(Pageable pageable);
+    Page<DrawResponse> getDrawHistory(Pageable pageable);
 
 }

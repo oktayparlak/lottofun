@@ -12,6 +12,7 @@ import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.Pageable;
 import org.springframework.scheduling.annotation.EnableScheduling;
 import org.springframework.scheduling.annotation.Scheduled;
@@ -50,9 +51,10 @@ public class DrawServiceImpl implements DrawService {
     }
 
     @Override
-    public List<DrawResponse> getDrawHistory(Pageable pageable) {
-        List<Draw> drawList = drawRepository.findAll(pageable).getContent();
-        return drawMapper.toResponseList(drawList);
+    public Page<DrawResponse> getDrawHistory(Pageable pageable) {
+        Page<Draw> drawList = drawRepository.findAll(pageable);
+        List<DrawResponse> drawResponses = drawMapper.toResponseList(drawList.getContent());
+        return new PageImpl<>(drawResponses, pageable, drawList.getTotalElements());
     }
 
 }

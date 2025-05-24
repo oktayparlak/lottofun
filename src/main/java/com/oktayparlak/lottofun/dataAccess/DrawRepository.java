@@ -16,7 +16,6 @@ public interface DrawRepository extends JpaRepository<Draw, Long> {
 
     Optional<Draw> findFirstByStatusOrderByDrawDateAsc(DrawStatus status);
 
-    Page<Draw> findAllByOrderByDrawDateDesc(Pageable pageable);
 
     Optional<Draw> findByDrawNumber(Long drawNumber);
 

@@ -33,12 +33,7 @@ public class DrawController {
     }
 
     @GetMapping("/history")
-    public ResponseEntity<List<DrawResponse>> getDrawHistory(
-            @RequestParam(defaultValue = "0") int page,
-            @RequestParam(defaultValue = "10") int size) {
-
-        Pageable pageable = PageRequest.of(page, size);
-
+    public ResponseEntity<Page<DrawResponse>> getDrawHistory(Pageable pageable) {
         return ResponseEntity.ok(drawService.getDrawHistory(pageable));
     }
 
