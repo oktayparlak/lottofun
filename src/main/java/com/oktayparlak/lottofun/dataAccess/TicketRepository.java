@@ -5,6 +5,7 @@ import com.oktayparlak.lottofun.entities.Ticket;
 import com.oktayparlak.lottofun.entities.User;
 import com.oktayparlak.lottofun.entities.enums.TicketStatus;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -19,8 +20,10 @@ public interface TicketRepository extends JpaRepository<Ticket, Long> {
 
     List<Ticket> findByDraw(Draw draw);
 
+    @Query("SELECT t FROM Ticket t JOIN FETCH t.draw WHERE t.user.id = :userId")
     List<Ticket> findByUser_Id(Long userId);
 
+    @Query("SELECT t FROM Ticket t JOIN FETCH t.draw WHERE t.id = :ticketId AND t.user.id = :userId")
     Optional<Ticket> findByIdAndUser_Id(Long ticketId, Long userId);
 
     Optional<Ticket> findByTicketNumber(String ticketNumber);

@@ -15,8 +15,12 @@ import java.util.stream.Collectors;
 public interface TicketMapper {
 
     @Mapping(source = "selectedNumbers", target = "selectedNumbers", qualifiedByName = "stringToIntegerList")
+    @Mapping(source = "draw.id", target = "drawId")
+    @Mapping(source = "draw.winningNumbers", target = "winningNumbers", qualifiedByName = "stringToIntegerList")
     TicketResponse toResponse(Ticket ticket);
 
+    @Mapping(source = "draw.id", target = "drawId")
+    @Mapping(source = "selectedNumbers", target = "selectedNumbers", qualifiedByName = "stringToIntegerList")
     List<TicketResponse> toResponseList(List<Ticket> tickets);
 
     @Named("stringToIntegerList")

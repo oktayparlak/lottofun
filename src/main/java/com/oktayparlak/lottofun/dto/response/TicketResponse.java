@@ -1,5 +1,6 @@
 package com.oktayparlak.lottofun.dto.response;
 
+import com.oktayparlak.lottofun.entities.Draw;
 import com.oktayparlak.lottofun.entities.enums.TicketStatus;
 import lombok.AllArgsConstructor;
 import lombok.Builder;

@@ -8,6 +8,7 @@ import com.oktayparlak.lottofun.entities.Ticket;
 import com.oktayparlak.lottofun.entities.enums.DrawStatus;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 
@@ -49,7 +50,7 @@ public class DrawScheduler {
         System.out.println("New draw created with ID: " + savedDraw.getId());
     }
 
-    @Scheduled(fixedRate = 7000)
+    @Scheduled(cron = "${draw.cron.expression}")
     @Transactional
     public void executeDraw() {
 
@@ -103,7 +104,14 @@ public class DrawScheduler {
             }
         }
 
-        return numbers;
+        List<Integer> demoNumbers = new ArrayList<>();
+        demoNumbers.add(1);
+        demoNumbers.add(2);
+        demoNumbers.add(3);
+        demoNumbers.add(4);
+        demoNumbers.add(5);
+        return demoNumbers; // For testing purposes, we return demo numbers
+
     }
 
     private String convertNumbersToString(List<Integer> numbers) {
