@@ -1,4 +1,4 @@
-package com.oktayparlak.lottofun;
+package com.oktayparlak.lottofun.core;
 
 import com.oktayparlak.lottofun.dataAccess.DrawRepository;
 import com.oktayparlak.lottofun.dataAccess.PrizeRepository;

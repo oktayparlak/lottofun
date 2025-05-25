@@ -15,6 +15,7 @@ import org.springframework.stereotype.Component;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 import java.util.Random;
 import java.util.stream.Collectors;
 
@@ -58,35 +59,35 @@ public class DrawScheduler {
             Draw openedDraw = drawRepository.findFirstByStatusOrderByDrawDateAsc(DrawStatus.DRAW_OPEN)
                     .orElse(null);
 
-            if (openedDraw == null) {
-                return; // There is no draw that closed to time
+            if (Objects.nonNull(openedDraw)) {
+                // Choose winning numbers
+                List<Integer> winningNumbers = generateWinningNumbers();
+                openedDraw.setWinningNumbers(convertNumbersToString(winningNumbers));
+                openedDraw.setStatus(DrawStatus.DRAW_EXTRACTED);
+                drawRepository.save(openedDraw);
+
+                //check the tickets and list the winners
+                List<Ticket> tickets = ticketRepository.findByDraw(openedDraw);
+                resultService.calculateResults(openedDraw, tickets);
+
+                // change the status of the draw
+                openedDraw.setStatus(DrawStatus.PAYMENTS_PROCESSING);
+                drawRepository.save(openedDraw);
+
+                // process payments
+                resultService.processPayments(tickets);
+
+                // change the status of the draw
+                openedDraw.setStatus(DrawStatus.DRAW_CLOSED);
+                drawRepository.save(openedDraw);
+
+                // Notify winners if we want to implement notification system
+
+                // create  new draw
+                createNewDraw();
             }
 
-            // Choose winning numbers
-            List<Integer> winningNumbers = generateWinningNumbers();
-            openedDraw.setWinningNumbers(convertNumbersToString(winningNumbers));
-            openedDraw.setStatus(DrawStatus.DRAW_EXTRACTED);
-            drawRepository.save(openedDraw);
 
-            //check the tickets and list the winners
-            List<Ticket> tickets = ticketRepository.findByDraw(openedDraw);
-            resultService.calculateResults(openedDraw, tickets);
-
-            // change the status of the draw
-            openedDraw.setStatus(DrawStatus.PAYMENTS_PROCESSING);
-            drawRepository.save(openedDraw);
-
-            // process payments
-            resultService.processPayments(tickets);
-
-            // change the status of the draw
-            openedDraw.setStatus(DrawStatus.DRAW_CLOSED);
-            drawRepository.save(openedDraw);
-
-            // Notify winners if we want to implement notification system
-
-            // create  new draw
-            createNewDraw();
         } catch (Exception e) {
             System.out.println("Error occurred during draw execution: " + e.getMessage());
         }
