@@ -8,7 +8,6 @@ import com.oktayparlak.lottofun.entities.Ticket;
 import com.oktayparlak.lottofun.entities.enums.DrawStatus;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 
@@ -43,7 +42,7 @@ public class DrawScheduler {
 
         Draw newDraw = Draw.builder()
                 .drawNumber(lastDrawNumber + 1)
-                /**
+                /*
                  * Set the draw date to 7 days from now.
                  * We are not using the cron expression to schedule the draw
                  * Because we are in development phase and we want to test the draw functionality
