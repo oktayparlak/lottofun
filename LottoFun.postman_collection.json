@@ -1,0 +1,844 @@
+{
+	"info": {
+		"_postman_id": "df1cca13-583d-4a7f-9d85-e829c9f5fa9a",
+		"name": "LottoFun",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "28830423"
+	},
+	"item": [
+		{
+			"name": "auths",
+			"item": [
+				{
+					"name": "login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"string\",// must be valid email\r\n    \"password\": \"string\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/auths/login",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"auths",
+								"login"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "success",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"email\": \"string\",// must be valid email\r\n    \"password\": \"string\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BASE_URL}}/auths/login",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"auths",
+										"login"
+									]
+								}
+							},
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [
+								{
+									"expires": "Invalid Date"
+								}
+							],
+							"body": "{\n    \"accessToken\": \"string\",\n    \"username\": \"string\",\n    \"email\": \"string\"\n}"
+						}
+					]
+				},
+				{
+					"name": "register",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "",
+								"value": "",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\": \"string\", // must be unique\r\n    \"password\": \"string\",\r\n    \"email\": \"string\" // must be valid email\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/auths/register",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"auths",
+								"register"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "success",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"email\": \"string\",// must be valid email\r\n    \"password\": \"string\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BASE_URL}}/auths/login",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"auths",
+										"login"
+									]
+								}
+							},
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [
+								{
+									"expires": "Invalid Date"
+								}
+							],
+							"body": "{\n    \"accessToken\": \"string\",\n    \"username\": \"string\",\n    \"email\": \"string\"\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "tickets",
+			"item": [
+				{
+					"name": "purschase ticket",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"selectedNumbers\": [\r\n    3,\r\n    4,\r\n    9,\r\n    5,\r\n    8\r\n  ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/tickets/",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"tickets",
+								""
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "success",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"selectedNumbers\": [\r\n    3,\r\n    4,\r\n    9,\r\n    5,\r\n    8\r\n  ]\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BASE_URL}}/tickets/",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"tickets",
+										""
+									]
+								}
+							},
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [
+								{
+									"expires": "Invalid Date"
+								}
+							],
+							"body": "{\r\n  \"id\": 0,\r\n  \"ticketNumber\": \"string\",\r\n  \"drawId\": 0,\r\n  \"selectedNumbers\": [\r\n    0\r\n  ],\r\n  \"matchCount\": 0,\r\n  \"prizeAmount\": 0,\r\n  \"status\": \"WAITING_FOR_DRAW\",\r\n  \"purchaseTimestamp\": \"2025-05-25T11:09:33.216Z\",\r\n  \"winningNumbers\": [\r\n    0\r\n  ]\r\n}"
+						}
+					]
+				},
+				{
+					"name": "get my ticket by id",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{BASE_URL}}/tickets/:id",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"tickets",
+								":id"
+							],
+							"query": [
+								{
+									"key": "",
+									"value": null,
+									"disabled": true
+								}
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "success",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{BASE_URL}}/tickets/:id",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"tickets",
+										":id"
+									],
+									"query": [
+										{
+											"key": "",
+											"value": null,
+											"disabled": true
+										}
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": ""
+										}
+									]
+								}
+							},
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": 0,\n    \"ticketNumber\": \"string\",\n    \"drawId\": 0,\n    \"selectedNumbers\": [\n        0\n    ],\n    \"matchCount\": 0,\n    \"prizeAmount\": 0,\n    \"status\": \"WAITING_FOR_DRAW\",\n    \"purchaseTimestamp\": \"2025-05-25T11:12:39.144Z\",\n    \"winningNumbers\": [\n        0\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "get my tickets",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{BASE_URL}}/tickets/my-tickets",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"tickets",
+								"my-tickets"
+							],
+							"query": [
+								{
+									"key": "",
+									"value": null,
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "success",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{BASE_URL}}/tickets/:id",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"tickets",
+										":id"
+									],
+									"query": [
+										{
+											"key": "",
+											"value": null,
+											"disabled": true
+										}
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": ""
+										}
+									]
+								}
+							},
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "[\n  {\n    \"id\": 0,\n    \"ticketNumber\": \"string\",\n    \"drawId\": 0,\n    \"selectedNumbers\": [\n      0\n    ],\n    \"matchCount\": 0,\n    \"prizeAmount\": 0,\n    \"status\": \"WAITING_FOR_DRAW\",\n    \"purchaseTimestamp\": \"2025-05-25T11:13:10.586Z\",\n    \"winningNumbers\": [\n      0\n    ]\n  }\n]"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "users",
+			"item": [
+				{
+					"name": "get my profile",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/users/profile",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"users",
+								"profile"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "success",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "{{BASE_URL}}/users/profile",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"users",
+										"profile"
+									]
+								}
+							},
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": 0,\n    \"username\": \"string\",\n    \"email\": \"string\",\n    \"balance\": 0\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "results",
+			"item": [
+				{
+					"name": "get result by ticket id",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/resullts/tickets/:id",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"resullts",
+								"tickets",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "success",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "{{BASE_URL}}/resullts/tickets/:id",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"resullts",
+										"tickets",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "0"
+										}
+									]
+								}
+							},
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": 0,\n    \"ticketNumber\": \"string\",\n    \"drawId\": 0,\n    \"selectedNumbers\": [\n        0\n    ],\n    \"matchCount\": 0,\n    \"prizeAmount\": 0,\n    \"status\": \"WAITING_FOR_DRAW\",\n    \"purchaseTimestamp\": \"2025-05-25T11:16:53.837Z\",\n    \"winningNumbers\": [\n        0\n    ]\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "draws",
+			"item": [
+				{
+					"name": "get active draw",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{BASE_URL}}/draws/active",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"draws",
+								"active"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "success",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "{{BASE_URL}}/draws/active",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"draws",
+										"active"
+									]
+								}
+							},
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": 0,\n    \"drawNumber\": 0,\n    \"drawDate\": \"2025-05-25T11:18:40.166Z\",\n    \"status\": \"DRAW_OPEN\",\n    \"winningNumbers\": [\n        0\n    ],\n    \"createdAt\": \"2025-05-25T11:18:40.166Z\"\n}"
+						}
+					]
+				},
+				{
+					"name": "get draws history",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{BASE_URL}}/draws/active?page=0&size=1&sort=string",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"draws",
+								"active"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "0"
+								},
+								{
+									"key": "size",
+									"value": "1"
+								},
+								{
+									"key": "sort",
+									"value": "string",
+									"description": "examples: \n\"id,asc\" \n\"id,desc\" \n\"drawDate,asc\"\n\"drawDate,desc\""
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "success",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "{{BASE_URL}}/draws/active?page=0&size=1&sort=string",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"draws",
+										"active"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "0"
+										},
+										{
+											"key": "size",
+											"value": "1"
+										},
+										{
+											"key": "sort",
+											"value": "string"
+										}
+									]
+								}
+							},
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"totalElements\": 0,\n  \"totalPages\": 0,\n  \"first\": true,\n  \"last\": true,\n  \"size\": 0,\n  \"content\": [\n    {\n      \"id\": 0,\n      \"drawNumber\": 0,\n      \"drawDate\": \"2025-05-25T11:20:08.684Z\",\n      \"status\": \"DRAW_OPEN\",\n      \"winningNumbers\": [\n        0\n      ],\n      \"createdAt\": \"2025-05-25T11:20:08.684Z\"\n    }\n  ],\n  \"number\": 0,\n  \"sort\": [\n    {\n      \"direction\": \"string\",\n      \"nullHandling\": \"string\",\n      \"ascending\": true,\n      \"property\": \"string\",\n      \"ignoreCase\": true\n    }\n  ],\n  \"numberOfElements\": 0,\n  \"pageable\": {\n    \"offset\": 0,\n    \"sort\": [\n      {\n        \"direction\": \"string\",\n        \"nullHandling\": \"string\",\n        \"ascending\": true,\n        \"property\": \"string\",\n        \"ignoreCase\": true\n      }\n    ],\n    \"pageNumber\": 0,\n    \"pageSize\": 0,\n    \"paged\": true,\n    \"unpaged\": true\n  },\n  \"empty\": true\n}"
+						}
+					]
+				},
+				{
+					"name": "get draw by id",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{BASE_URL}}/draws/:id",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"draws",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "success",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "{{BASE_URL}}/draws/:id",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"draws",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": ""
+										}
+									]
+								}
+							},
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": 0,\n    \"drawNumber\": 0,\n    \"drawDate\": \"2025-05-25T11:18:40.166Z\",\n    \"status\": \"DRAW_OPEN\",\n    \"winningNumbers\": [\n        0\n    ],\n    \"createdAt\": \"2025-05-25T11:18:40.166Z\"\n}"
+						}
+					]
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "BASE_URL",
+			"value": "http://localhost:8080/api/v1",
+			"type": "string"
+		}
+	]
+}
