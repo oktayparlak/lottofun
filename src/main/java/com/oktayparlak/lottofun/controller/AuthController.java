@@ -4,7 +4,6 @@ import com.oktayparlak.lottofun.business.abstracts.AuthService;
 import com.oktayparlak.lottofun.dto.request.LoginRequest;
 import com.oktayparlak.lottofun.dto.request.RegisterRequest;
 import com.oktayparlak.lottofun.dto.response.AuthResponse;
-import com.oktayparlak.lottofun.dto.response.UserResponse;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
