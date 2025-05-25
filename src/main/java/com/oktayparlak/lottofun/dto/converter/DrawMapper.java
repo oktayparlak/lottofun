@@ -5,7 +5,6 @@ import com.oktayparlak.lottofun.entities.Draw;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.mapstruct.Named;
-import org.springframework.data.domain.Page;
 
 import java.util.ArrayList;
 import java.util.Arrays;

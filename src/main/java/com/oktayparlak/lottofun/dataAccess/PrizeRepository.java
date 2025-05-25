@@ -10,9 +10,6 @@ import java.util.Optional;
 @Repository
 public interface PrizeRepository extends JpaRepository<Prize, Long> {
 
-    Optional<Prize> findByMatchCount(Integer matchCount);
-
-
     Optional<Prize> findFirstByPrizeType(PrizeType prizeType);
 
 }

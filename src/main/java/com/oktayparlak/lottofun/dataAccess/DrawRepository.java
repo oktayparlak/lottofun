@@ -2,8 +2,6 @@ package com.oktayparlak.lottofun.dataAccess;
 
 import com.oktayparlak.lottofun.entities.Draw;
 import com.oktayparlak.lottofun.entities.enums.DrawStatus;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
@@ -14,9 +12,5 @@ public interface DrawRepository extends JpaRepository<Draw, Long> {
 
     Optional<Draw> findByStatus(DrawStatus status);
 
-    Optional<Draw> findFirstByStatusOrderByDrawDateAsc(DrawStatus status);
-
-
-    Optional<Draw> findByDrawNumber(Long drawNumber);
 
 }
