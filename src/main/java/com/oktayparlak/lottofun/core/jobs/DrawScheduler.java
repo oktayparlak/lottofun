@@ -43,7 +43,12 @@ public class DrawScheduler {
 
         Draw newDraw = Draw.builder()
                 .drawNumber(lastDrawNumber + 1)
-                .drawDate(LocalDateTime.now().plusDays(7)) // Set the draw date to 7 days from now
+                /**
+                 * Set the draw date to 7 days from now.
+                 * We are not using the cron expression to schedule the draw
+                 * Because we are in development phase and we want to test the draw functionality
+                 */
+                .drawDate(LocalDateTime.now().plusDays(7))
                 .status(DrawStatus.DRAW_OPEN)
                 .build();
 
@@ -56,8 +61,12 @@ public class DrawScheduler {
     public void executeDraw() {
 
         try {
-            Draw openedDraw = drawRepository.findFirstByStatusOrderByDrawDateAsc(DrawStatus.DRAW_OPEN)
+            Draw openedDraw = drawRepository.findByStatus(DrawStatus.DRAW_OPEN)
+                    .stream()
+                    .findFirst()
                     .orElse(null);
+
+            System.out.println(openedDraw);
 
             if (Objects.nonNull(openedDraw)) {
                 // Choose winning numbers
@@ -104,7 +113,7 @@ public class DrawScheduler {
                 numbers.add(number);
             }
         }
-
+        /*
         List<Integer> demoNumbers = new ArrayList<>();
         demoNumbers.add(1);
         demoNumbers.add(2);
@@ -112,6 +121,8 @@ public class DrawScheduler {
         demoNumbers.add(4);
         demoNumbers.add(5);
         return demoNumbers; // For testing purposes, we return demo numbers
+        */
+        return numbers; // Uncomment this line to use real random numbers
 
     }
 
