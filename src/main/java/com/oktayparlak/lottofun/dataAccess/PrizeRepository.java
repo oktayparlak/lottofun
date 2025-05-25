@@ -12,6 +12,7 @@ public interface PrizeRepository extends JpaRepository<Prize, Long> {
 
     Optional<Prize> findByMatchCount(Integer matchCount);
 
-    Optional<Prize> findByPrizeType(PrizeType prizeType);
+
+    Optional<Prize> findFirstByPrizeType(PrizeType prizeType);
 
 }

@@ -44,38 +44,47 @@ public class ResultServiceImpl implements ResultService {
     @Transactional
     @Override
     public void calculateResults(Draw draw, List<Ticket> tickets) {
-        if(draw.getWinningNumbers() == null) {
-            throw new IllegalArgumentException("Draw winning numbers is null");
-        }
+        try {
+            if (draw.getWinningNumbers() == null) {
+                throw new IllegalArgumentException("Draw winning numbers is null");
+            }
 
-        Set<Integer> winningNumbersSet = Arrays.stream(draw.getWinningNumbers().split(","))
-                .map(Integer::parseInt)
-                .collect(Collectors.toSet());
-
-        for (Ticket ticket : tickets) {
-
-            Set<Integer> selectedNumbersSet = Arrays.stream(ticket.getSelectedNumbers().split(","))
+            Set<Integer> winningNumbersSet = Arrays.stream(draw.getWinningNumbers().split(","))
                     .map(Integer::parseInt)
                     .collect(Collectors.toSet());
 
-            // Calculate the number of matches
-            Set<Integer> matchingNumbers = selectedNumbersSet.stream()
-                    .filter(winningNumbersSet::contains)
-                    .collect(Collectors.toSet());
+            for (Ticket ticket : tickets) {
 
-            int matchCount = matchingNumbers.size();
-            ticket.setMatchCount(matchCount);
+                Set<Integer> selectedNumbersSet = Arrays.stream(ticket.getSelectedNumbers().split(","))
+                        .map(Integer::parseInt)
+                        .collect(Collectors.toSet());
 
-            // Determine the prize type based on the match count
-            PrizeType prizeType = determinePrizeType(matchCount);
-            Prize prize = prizeRepository.findByPrizeType(prizeType)
-                    .orElseThrow(() -> new RuntimeException("Prize not found for type: " + prizeType));
+                // Calculate the number of matches
+                Set<Integer> matchingNumbers = selectedNumbersSet.stream()
+                        .filter(winningNumbersSet::contains)
+                        .collect(Collectors.toSet());
 
-            ticket.setPrizeAmount(prize.getAmount());
-            ticket.setStatus(matchCount >=2 ? TicketStatus.WON : TicketStatus.NOT_WON);
+                int matchCount = matchingNumbers.size();
+                ticket.setMatchCount(matchCount);
 
-            ticketRepository.save(ticket);
+                // Determine the prize type based on the match count
+                PrizeType prizeType = determinePrizeType(matchCount);
 
+                Prize prize = prizeRepository.findFirstByPrizeType(prizeType)
+                        .orElseThrow(() -> new RuntimeException("Prize not found for type: " + prizeType));
+
+                System.out.println("-------------");
+                System.out.println("ticket: " + ticket.getMatchCount());
+                System.out.println("-------------");
+
+                ticket.setPrizeAmount(prize.getAmount());
+                ticket.setStatus(matchCount >= 2 ? TicketStatus.WON : TicketStatus.NOT_WON);
+
+                ticketRepository.save(ticket);
+
+            }
+        } catch (Exception e) {
+            System.out.println("ERORRRRRR calculating results: " + e.getMessage());
         }
 
     }
@@ -92,17 +101,12 @@ public class ResultServiceImpl implements ResultService {
     }
 
     public PrizeType determinePrizeType(int matchCount) {
-        switch (matchCount) {
-            case 5:
-                return PrizeType.JACKPOT;
-            case 4:
-                return PrizeType.HIGH;
-            case 3:
-                return PrizeType.MEDIUM;
-            case 2:
-                return PrizeType.LOW;
-            default:
-                return PrizeType.NO_PRIZE;
-        }
+        return switch (matchCount) {
+            case 5 -> PrizeType.JACKPOT;
+            case 4 -> PrizeType.HIGH;
+            case 3 -> PrizeType.MEDIUM;
+            case 2 -> PrizeType.LOW;
+            default -> PrizeType.NO_PRIZE;
+        };
     }
 }
