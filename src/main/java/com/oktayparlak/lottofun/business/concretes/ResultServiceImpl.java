@@ -1,11 +1,9 @@
 package com.oktayparlak.lottofun.business.concretes;
 
 import com.oktayparlak.lottofun.business.abstracts.ResultService;
-import com.oktayparlak.lottofun.business.abstracts.TicketService;
 import com.oktayparlak.lottofun.dataAccess.PrizeRepository;
 import com.oktayparlak.lottofun.dataAccess.TicketRepository;
 import com.oktayparlak.lottofun.dataAccess.UserRepository;
-import com.oktayparlak.lottofun.dto.converter.TicketMapper;
 import com.oktayparlak.lottofun.entities.Draw;
 import com.oktayparlak.lottofun.entities.Prize;
 import com.oktayparlak.lottofun.entities.Ticket;
@@ -25,18 +23,15 @@ import java.util.stream.Collectors;
 public class ResultServiceImpl implements ResultService {
 
     private final TicketRepository ticketRepository;
-    private final TicketMapper ticketMapper;
     private final UserRepository userRepository;
     private final PrizeRepository prizeRepository;
 
     @Autowired
     public ResultServiceImpl(
             TicketRepository ticketRepository,
-            TicketMapper ticketMapper,
             UserRepository userRepository,
             PrizeRepository prizeRepository) {
         this.ticketRepository = ticketRepository;
-        this.ticketMapper = ticketMapper;
         this.userRepository = userRepository;
         this.prizeRepository = prizeRepository;
     }
@@ -73,9 +68,6 @@ public class ResultServiceImpl implements ResultService {
                 Prize prize = prizeRepository.findFirstByPrizeType(prizeType)
                         .orElseThrow(() -> new RuntimeException("Prize not found for type: " + prizeType));
 
-                System.out.println("-------------");
-                System.out.println("ticket: " + ticket.getMatchCount());
-                System.out.println("-------------");
 
                 ticket.setPrizeAmount(prize.getAmount());
                 ticket.setStatus(matchCount >= 2 ? TicketStatus.WON : TicketStatus.NOT_WON);
