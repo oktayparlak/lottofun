@@ -3,6 +3,7 @@ package com.oktayparlak.lottofun.controller;
 import com.oktayparlak.lottofun.business.abstracts.TicketService;
 import com.oktayparlak.lottofun.dto.request.TicketRequest;
 import com.oktayparlak.lottofun.dto.response.TicketResponse;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
@@ -26,7 +27,7 @@ public class TicketController {
     }
 
     @PostMapping("/")
-    public ResponseEntity<TicketResponse> purchaseTicket(@AuthenticationPrincipal UserDetails userDetails, TicketRequest ticketRequest) {
+    public ResponseEntity<TicketResponse> purchaseTicket(@AuthenticationPrincipal UserDetails userDetails, @Valid TicketRequest ticketRequest) {
         return ResponseEntity.ok(ticketService.purchaseTicket(userDetails.getUsername(), ticketRequest));
     }
 
