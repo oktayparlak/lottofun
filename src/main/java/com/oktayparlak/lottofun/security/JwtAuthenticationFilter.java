@@ -31,14 +31,14 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
 
         String jwt;
         String userEmail;
+        String path = request.getRequestURI();
+
+        if (authHeader == null || !authHeader.startsWith("Bearer ") || path.startsWith("/auths/")) {
+            filterChain.doFilter(request, response);
+            return;
+        }
 
         try {
-
-
-            if (authHeader == null || !authHeader.startsWith("Bearer ")) {
-                filterChain.doFilter(request, response);
-                return;
-            }
 
             jwt = authHeader.substring(7);
             userEmail = jwtUtil.extractEmail(jwt);
