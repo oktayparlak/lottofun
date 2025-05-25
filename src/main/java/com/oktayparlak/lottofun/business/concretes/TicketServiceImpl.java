@@ -58,6 +58,16 @@ public class TicketServiceImpl implements TicketService {
         // validate selected numbers
         validateSelectedNumbers(ticketRequest.getSelectedNumbers());
 
+        // check if user has already purchased a ticket with same numbers for the active draw
+        Ticket existingTicket = ticketRepository.findByUserAndDraw(user, activeDraw)
+                .stream()
+                .filter(ticket -> ticket.getSelectedNumbers().equals(convertNumbersToString(ticketRequest.getSelectedNumbers())))
+                .findFirst()
+                .orElse(null);
+        if (existingTicket != null) {
+            throw new RuntimeException("You have already purchased a ticket with these numbers for the active draw");
+        }
+
         // check user's balance
         if(user.getBalance().compareTo(TICKET_PRICE) < 0) {
             throw new RuntimeException("You have not enough money");
