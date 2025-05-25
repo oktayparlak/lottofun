@@ -9,8 +9,6 @@ services:
         condition: service_healthy
     ports:
       - "8080:8080"
-    environment:
-      - SPRING_PROFILES_ACTIVE=docker
     restart: always
     networks:
       - lottofun-network

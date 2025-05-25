@@ -16,7 +16,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"email\": \"string\",// must be valid email\r\n    \"password\": \"string\"\r\n}",
+							"raw": "{\r\n    \"password\": \"oktay123\",\r\n    \"email\": \"oktay@mail.com\" // must be valid email\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -76,6 +76,95 @@
 								}
 							],
 							"body": "{\n    \"accessToken\": \"string\",\n    \"username\": \"string\",\n    \"email\": \"string\"\n}"
+						},
+						{
+							"name": "success-example",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"password\": \"oktay123\",\r\n    \"email\": \"oktay@mail.com\" // must be valid email\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BASE_URL}}/auths/login",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"auths",
+										"login"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Method"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Headers"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 25 May 2025 16:58:02 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"accessToken\": \"eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJva3RheUBtYWlsLmNvbSIsImlhdCI6MTc0ODE5MjI4MiwiZXhwIjoxNzQ4Mjc4NjgyfQ._ya0mNjU6mdf8UVdl_pKQCzgoPEV1hmQipPMUywy5Gw\",\n    \"username\": \"oktayparlak\",\n    \"email\": \"oktay@mail.com\"\n}"
 						}
 					]
 				},
@@ -93,7 +182,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"username\": \"string\", // must be unique\r\n    \"password\": \"string\",\r\n    \"email\": \"string\" // must be valid email\r\n}",
+							"raw": "{\r\n    \"username\": \"oktayparlak\", // must be unique\r\n    \"password\": \"oktay123\",\r\n    \"email\": \"oktay@mail.com\" // must be valid email\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -153,6 +242,102 @@
 								}
 							],
 							"body": "{\n    \"accessToken\": \"string\",\n    \"username\": \"string\",\n    \"email\": \"string\"\n}"
+						},
+						{
+							"name": "success-example",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "",
+										"value": "",
+										"type": "text",
+										"disabled": true
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"username\": \"oktayparlak\", // must be unique\r\n    \"password\": \"oktay123\",\r\n    \"email\": \"oktay@mail.com\" // must be valid email\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BASE_URL}}/auths/register",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"auths",
+										"register"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Method"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Headers"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 25 May 2025 16:57:34 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"accessToken\": \"eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJva3RheUBtYWlsLmNvbSIsImlhdCI6MTc0ODE5MjI1NCwiZXhwIjoxNzQ4Mjc4NjU0fQ.0vZyV7tF9p461L9jR-PqwpGjrP1vhJ_J4d2G9TvkRGU\",\n    \"username\": \"oktayparlak\",\n    \"email\": \"oktay@mail.com\"\n}"
 						}
 					]
 				}
@@ -168,7 +353,7 @@
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "",
+								"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJva3RheUBtYWlsLmNvbSIsImlhdCI6MTc0ODE5MjI4MiwiZXhwIjoxNzQ4Mjc4NjgyfQ._ya0mNjU6mdf8UVdl_pKQCzgoPEV1hmQipPMUywy5Gw",
 								"type": "text"
 							}
 						],
@@ -239,6 +424,101 @@
 								}
 							],
 							"body": "{\r\n  \"id\": 0,\r\n  \"ticketNumber\": \"string\",\r\n  \"drawId\": 0,\r\n  \"selectedNumbers\": [\r\n    0\r\n  ],\r\n  \"matchCount\": 0,\r\n  \"prizeAmount\": 0,\r\n  \"status\": \"WAITING_FOR_DRAW\",\r\n  \"purchaseTimestamp\": \"2025-05-25T11:09:33.216Z\",\r\n  \"winningNumbers\": [\r\n    0\r\n  ]\r\n}"
+						},
+						{
+							"name": "success-example",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJva3RheUBtYWlsLmNvbSIsImlhdCI6MTc0ODE5MjI4MiwiZXhwIjoxNzQ4Mjc4NjgyfQ._ya0mNjU6mdf8UVdl_pKQCzgoPEV1hmQipPMUywy5Gw",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"selectedNumbers\": [\r\n    3,\r\n    4,\r\n    9,\r\n    5,\r\n    8\r\n  ]\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BASE_URL}}/tickets/",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"tickets",
+										""
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Method"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Headers"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 25 May 2025 17:12:44 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": 3,\n    \"ticketNumber\": \"50FDD5D7\",\n    \"drawId\": 159,\n    \"selectedNumbers\": [\n        3,\n        4,\n        5,\n        8,\n        9\n    ],\n    \"matchCount\": null,\n    \"prizeAmount\": null,\n    \"status\": \"WAITING_FOR_DRAW\",\n    \"purchaseTimestamp\": \"2025-05-25T17:12:44.532730999\",\n    \"winningNumbers\": []\n}"
 						}
 					]
 				},
@@ -249,7 +529,7 @@
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "",
+								"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJva3RheUBtYWlsLmNvbSIsImlhdCI6MTc0ODE5MjI4MiwiZXhwIjoxNzQ4Mjc4NjgyfQ._ya0mNjU6mdf8UVdl_pKQCzgoPEV1hmQipPMUywy5Gw",
 								"type": "text"
 							}
 						],
@@ -272,7 +552,7 @@
 							"variable": [
 								{
 									"key": "id",
-									"value": ""
+									"value": "1"
 								}
 							]
 						}
@@ -325,6 +605,105 @@
 							],
 							"cookie": [],
 							"body": "{\n    \"id\": 0,\n    \"ticketNumber\": \"string\",\n    \"drawId\": 0,\n    \"selectedNumbers\": [\n        0\n    ],\n    \"matchCount\": 0,\n    \"prizeAmount\": 0,\n    \"status\": \"WAITING_FOR_DRAW\",\n    \"purchaseTimestamp\": \"2025-05-25T11:12:39.144Z\",\n    \"winningNumbers\": [\n        0\n    ]\n}"
+						},
+						{
+							"name": "success-example",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJva3RheUBtYWlsLmNvbSIsImlhdCI6MTc0ODE5MjI4MiwiZXhwIjoxNzQ4Mjc4NjgyfQ._ya0mNjU6mdf8UVdl_pKQCzgoPEV1hmQipPMUywy5Gw",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{BASE_URL}}/tickets/:id",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"tickets",
+										":id"
+									],
+									"query": [
+										{
+											"key": "",
+											"value": null,
+											"disabled": true
+										}
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Method"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Headers"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 25 May 2025 17:06:22 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": 1,\n    \"ticketNumber\": \"69A8F924\",\n    \"drawId\": 143,\n    \"selectedNumbers\": [\n        3,\n        5,\n        6,\n        7,\n        8\n    ],\n    \"matchCount\": 0,\n    \"prizeAmount\": 0,\n    \"status\": \"NOT_WON\",\n    \"purchaseTimestamp\": \"2025-05-25T17:04:07.135224\",\n    \"winningNumbers\": [\n        34,\n        48,\n        9,\n        42,\n        35\n    ]\n}"
 						}
 					]
 				},
@@ -335,7 +714,7 @@
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "",
+								"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJva3RheUBtYWlsLmNvbSIsImlhdCI6MTc0ODE5MjI4MiwiZXhwIjoxNzQ4Mjc4NjgyfQ._ya0mNjU6mdf8UVdl_pKQCzgoPEV1hmQipPMUywy5Gw",
 								"type": "text"
 							}
 						],
@@ -404,6 +783,99 @@
 							],
 							"cookie": [],
 							"body": "[\n  {\n    \"id\": 0,\n    \"ticketNumber\": \"string\",\n    \"drawId\": 0,\n    \"selectedNumbers\": [\n      0\n    ],\n    \"matchCount\": 0,\n    \"prizeAmount\": 0,\n    \"status\": \"WAITING_FOR_DRAW\",\n    \"purchaseTimestamp\": \"2025-05-25T11:13:10.586Z\",\n    \"winningNumbers\": [\n      0\n    ]\n  }\n]"
+						},
+						{
+							"name": "success-example",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJva3RheUBtYWlsLmNvbSIsImlhdCI6MTc0ODE5MjI4MiwiZXhwIjoxNzQ4Mjc4NjgyfQ._ya0mNjU6mdf8UVdl_pKQCzgoPEV1hmQipPMUywy5Gw",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{BASE_URL}}/tickets/my-tickets",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"tickets",
+										"my-tickets"
+									],
+									"query": [
+										{
+											"key": "",
+											"value": null,
+											"disabled": true
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Method"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Headers"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 25 May 2025 17:06:00 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"id\": 1,\n        \"ticketNumber\": \"69A8F924\",\n        \"drawId\": 143,\n        \"selectedNumbers\": [\n            3,\n            5,\n            6,\n            7,\n            8\n        ],\n        \"matchCount\": 0,\n        \"prizeAmount\": 0,\n        \"status\": \"NOT_WON\",\n        \"purchaseTimestamp\": \"2025-05-25T17:04:07.135224\",\n        \"winningNumbers\": [\n            34,\n            48,\n            9,\n            42,\n            35\n        ]\n    },\n    {\n        \"id\": 2,\n        \"ticketNumber\": \"DFE92094\",\n        \"drawId\": 145,\n        \"selectedNumbers\": [\n            3,\n            4,\n            5,\n            8,\n            9\n        ],\n        \"matchCount\": 1,\n        \"prizeAmount\": 0,\n        \"status\": \"NOT_WON\",\n        \"purchaseTimestamp\": \"2025-05-25T17:05:39.397736\",\n        \"winningNumbers\": [\n            3,\n            44,\n            6,\n            39,\n            12\n        ]\n    }\n]"
 						}
 					]
 				}
@@ -422,7 +894,7 @@
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "",
+								"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJva3RheUBtYWlsLmNvbSIsImlhdCI6MTc0ODE5MjI4MiwiZXhwIjoxNzQ4Mjc4NjgyfQ._ya0mNjU6mdf8UVdl_pKQCzgoPEV1hmQipPMUywy5Gw",
 								"type": "text"
 							}
 						],
@@ -480,6 +952,96 @@
 							],
 							"cookie": [],
 							"body": "{\n    \"id\": 0,\n    \"username\": \"string\",\n    \"email\": \"string\",\n    \"balance\": 0\n}"
+						},
+						{
+							"name": "success-example",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJva3RheUBtYWlsLmNvbSIsImlhdCI6MTc0ODE5MjI4MiwiZXhwIjoxNzQ4Mjc4NjgyfQ._ya0mNjU6mdf8UVdl_pKQCzgoPEV1hmQipPMUywy5Gw",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "{{BASE_URL}}/users/profile",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"users",
+										"profile"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Method"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Headers"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 25 May 2025 16:59:54 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": 3,\n    \"username\": \"oktayparlak\",\n    \"email\": \"oktay@mail.com\",\n    \"balance\": 1000\n}"
 						}
 					]
 				}
@@ -498,7 +1060,7 @@
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "",
+								"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJva3RheUBtYWlsLmNvbSIsImlhdCI6MTc0ODE5MjI4MiwiZXhwIjoxNzQ4Mjc4NjgyfQ._ya0mNjU6mdf8UVdl_pKQCzgoPEV1hmQipPMUywy5Gw",
 								"type": "text"
 							}
 						],
@@ -507,19 +1069,19 @@
 							"raw": ""
 						},
 						"url": {
-							"raw": "{{BASE_URL}}/resullts/tickets/:id",
+							"raw": "{{BASE_URL}}/results/tickets/:id",
 							"host": [
 								"{{BASE_URL}}"
 							],
 							"path": [
-								"resullts",
+								"results",
 								"tickets",
 								":id"
 							],
 							"variable": [
 								{
 									"key": "id",
-									"value": ""
+									"value": "1"
 								}
 							]
 						}
@@ -570,6 +1132,103 @@
 							],
 							"cookie": [],
 							"body": "{\n    \"id\": 0,\n    \"ticketNumber\": \"string\",\n    \"drawId\": 0,\n    \"selectedNumbers\": [\n        0\n    ],\n    \"matchCount\": 0,\n    \"prizeAmount\": 0,\n    \"status\": \"WAITING_FOR_DRAW\",\n    \"purchaseTimestamp\": \"2025-05-25T11:16:53.837Z\",\n    \"winningNumbers\": [\n        0\n    ]\n}"
+						},
+						{
+							"name": "success-example",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJva3RheUBtYWlsLmNvbSIsImlhdCI6MTc0ODE5MjI4MiwiZXhwIjoxNzQ4Mjc4NjgyfQ._ya0mNjU6mdf8UVdl_pKQCzgoPEV1hmQipPMUywy5Gw",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "{{BASE_URL}}/results/tickets/:id",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"results",
+										"tickets",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Method"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Headers"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 25 May 2025 17:06:46 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": 1,\n    \"ticketNumber\": \"69A8F924\",\n    \"drawId\": 143,\n    \"selectedNumbers\": [\n        3,\n        5,\n        6,\n        7,\n        8\n    ],\n    \"matchCount\": 0,\n    \"prizeAmount\": 0,\n    \"status\": \"NOT_WON\",\n    \"purchaseTimestamp\": \"2025-05-25T17:04:07.135224\",\n    \"winningNumbers\": [\n        34,\n        48,\n        9,\n        42,\n        35\n    ]\n}"
 						}
 					]
 				}
@@ -585,7 +1244,7 @@
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "",
+								"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJva3RheUBtYWlsLmNvbSIsImlhdCI6MTc0ODE5MjI4MiwiZXhwIjoxNzQ4Mjc4NjgyfQ._ya0mNjU6mdf8UVdl_pKQCzgoPEV1hmQipPMUywy5Gw",
 								"type": "text"
 							}
 						],
@@ -639,6 +1298,92 @@
 							],
 							"cookie": [],
 							"body": "{\n    \"id\": 0,\n    \"drawNumber\": 0,\n    \"drawDate\": \"2025-05-25T11:18:40.166Z\",\n    \"status\": \"DRAW_OPEN\",\n    \"winningNumbers\": [\n        0\n    ],\n    \"createdAt\": \"2025-05-25T11:18:40.166Z\"\n}"
+						},
+						{
+							"name": "success-example",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJva3RheUBtYWlsLmNvbSIsImlhdCI6MTc0ODE5MjI4MiwiZXhwIjoxNzQ4Mjc4NjgyfQ._ya0mNjU6mdf8UVdl_pKQCzgoPEV1hmQipPMUywy5Gw",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{BASE_URL}}/draws/active",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"draws",
+										"active"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Method"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Headers"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 25 May 2025 17:07:04 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": 148,\n    \"drawNumber\": 3432570,\n    \"drawDate\": \"2025-06-01T17:07:00.013248\",\n    \"status\": \"DRAW_OPEN\",\n    \"winningNumbers\": [],\n    \"createdAt\": \"2025-05-25T17:07:00.01343\"\n}"
 						}
 					]
 				},
@@ -649,18 +1394,18 @@
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "",
+								"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJva3RheUBtYWlsLmNvbSIsImlhdCI6MTc0ODE5MjI4MiwiZXhwIjoxNzQ4Mjc4NjgyfQ._ya0mNjU6mdf8UVdl_pKQCzgoPEV1hmQipPMUywy5Gw",
 								"type": "text"
 							}
 						],
 						"url": {
-							"raw": "{{BASE_URL}}/draws/active?page=0&size=1&sort=string",
+							"raw": "{{BASE_URL}}/draws/history?page=0&size=1&sort=id,desc",
 							"host": [
 								"{{BASE_URL}}"
 							],
 							"path": [
 								"draws",
-								"active"
+								"history"
 							],
 							"query": [
 								{
@@ -673,7 +1418,7 @@
 								},
 								{
 									"key": "sort",
-									"value": "string",
+									"value": "id,desc",
 									"description": "examples: \n\"id,asc\" \n\"id,desc\" \n\"drawDate,asc\"\n\"drawDate,desc\""
 								}
 							]
@@ -731,6 +1476,107 @@
 							],
 							"cookie": [],
 							"body": "{\n  \"totalElements\": 0,\n  \"totalPages\": 0,\n  \"first\": true,\n  \"last\": true,\n  \"size\": 0,\n  \"content\": [\n    {\n      \"id\": 0,\n      \"drawNumber\": 0,\n      \"drawDate\": \"2025-05-25T11:20:08.684Z\",\n      \"status\": \"DRAW_OPEN\",\n      \"winningNumbers\": [\n        0\n      ],\n      \"createdAt\": \"2025-05-25T11:20:08.684Z\"\n    }\n  ],\n  \"number\": 0,\n  \"sort\": [\n    {\n      \"direction\": \"string\",\n      \"nullHandling\": \"string\",\n      \"ascending\": true,\n      \"property\": \"string\",\n      \"ignoreCase\": true\n    }\n  ],\n  \"numberOfElements\": 0,\n  \"pageable\": {\n    \"offset\": 0,\n    \"sort\": [\n      {\n        \"direction\": \"string\",\n        \"nullHandling\": \"string\",\n        \"ascending\": true,\n        \"property\": \"string\",\n        \"ignoreCase\": true\n      }\n    ],\n    \"pageNumber\": 0,\n    \"pageSize\": 0,\n    \"paged\": true,\n    \"unpaged\": true\n  },\n  \"empty\": true\n}"
+						},
+						{
+							"name": "success-example",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJva3RheUBtYWlsLmNvbSIsImlhdCI6MTc0ODE5MjI4MiwiZXhwIjoxNzQ4Mjc4NjgyfQ._ya0mNjU6mdf8UVdl_pKQCzgoPEV1hmQipPMUywy5Gw",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{BASE_URL}}/draws/history?page=0&size=1&sort=id,desc",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"draws",
+										"history"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "0"
+										},
+										{
+											"key": "size",
+											"value": "1"
+										},
+										{
+											"key": "sort",
+											"value": "id,desc",
+											"description": "examples: \n\"id,asc\" \n\"id,desc\" \n\"drawDate,asc\"\n\"drawDate,desc\""
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Method"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Headers"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 25 May 2025 17:09:51 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"content\": [\n        {\n            \"id\": 153,\n            \"drawNumber\": 3432575,\n            \"drawDate\": \"2025-06-01T17:09:30.007723\",\n            \"status\": \"DRAW_OPEN\",\n            \"winningNumbers\": [],\n            \"createdAt\": \"2025-05-25T17:09:30.007886\"\n        }\n    ],\n    \"pageable\": {\n        \"pageNumber\": 0,\n        \"pageSize\": 1,\n        \"sort\": {\n            \"unsorted\": false,\n            \"sorted\": true,\n            \"empty\": false\n        },\n        \"offset\": 0,\n        \"unpaged\": false,\n        \"paged\": true\n    },\n    \"totalPages\": 153,\n    \"last\": false,\n    \"totalElements\": 153,\n    \"first\": true,\n    \"numberOfElements\": 1,\n    \"size\": 1,\n    \"number\": 0,\n    \"sort\": {\n        \"unsorted\": false,\n        \"sorted\": true,\n        \"empty\": false\n    },\n    \"empty\": false\n}"
 						}
 					]
 				},
@@ -741,7 +1587,7 @@
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "",
+								"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJva3RheUBtYWlsLmNvbSIsImlhdCI6MTc0ODE5MjI4MiwiZXhwIjoxNzQ4Mjc4NjgyfQ._ya0mNjU6mdf8UVdl_pKQCzgoPEV1hmQipPMUywy5Gw",
 								"type": "text"
 							}
 						],
@@ -757,7 +1603,7 @@
 							"variable": [
 								{
 									"key": "id",
-									"value": ""
+									"value": "154"
 								}
 							]
 						}
@@ -779,12 +1625,12 @@
 									"raw": ""
 								},
 								"url": {
-									"raw": "{{BASE_URL}}/draws/:id",
+									"raw": "{{BASE_URL}}/drawss/:id",
 									"host": [
 										"{{BASE_URL}}"
 									],
 									"path": [
-										"draws",
+										"drawss",
 										":id"
 									],
 									"variable": [
@@ -806,6 +1652,98 @@
 							],
 							"cookie": [],
 							"body": "{\n    \"id\": 0,\n    \"drawNumber\": 0,\n    \"drawDate\": \"2025-05-25T11:18:40.166Z\",\n    \"status\": \"DRAW_OPEN\",\n    \"winningNumbers\": [\n        0\n    ],\n    \"createdAt\": \"2025-05-25T11:18:40.166Z\"\n}"
+						},
+						{
+							"name": "success-example",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJva3RheUBtYWlsLmNvbSIsImlhdCI6MTc0ODE5MjI4MiwiZXhwIjoxNzQ4Mjc4NjgyfQ._ya0mNjU6mdf8UVdl_pKQCzgoPEV1hmQipPMUywy5Gw",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{BASE_URL}}/draws/:id",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"draws",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "154"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Method"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Headers"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 25 May 2025 17:10:40 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": 154,\n    \"drawNumber\": 3432576,\n    \"drawDate\": \"2025-06-01T17:10:00.012844\",\n    \"status\": \"DRAW_CLOSED\",\n    \"winningNumbers\": [\n        38,\n        40,\n        1,\n        34,\n        32\n    ],\n    \"createdAt\": \"2025-05-25T17:10:00.013233\"\n}"
 						}
 					]
 				}

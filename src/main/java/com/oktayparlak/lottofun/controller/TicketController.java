@@ -24,7 +24,7 @@ public class TicketController {
     }
 
     @PostMapping("/")
-    public ResponseEntity<TicketResponse> purchaseTicket(@AuthenticationPrincipal UserDetails userDetails, @Valid TicketRequest ticketRequest) {
+    public ResponseEntity<TicketResponse> purchaseTicket(@AuthenticationPrincipal UserDetails userDetails,@RequestBody @Valid TicketRequest ticketRequest) {
         return ResponseEntity.ok(ticketService.purchaseTicket(userDetails.getUsername(), ticketRequest));
     }
 
