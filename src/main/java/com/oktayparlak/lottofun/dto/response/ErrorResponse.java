@@ -1,4 +1,4 @@
-package com.oktayparlak.lottofun.core;
+package com.oktayparlak.lottofun.dto.response;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
